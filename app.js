@@ -16,12 +16,20 @@ var App = React.createClass({
     this.setState({todos: this.state.todos});
   },
 
+  removeTodo: function(index) {
+    this.state.todos.splice(index, 1);
+    this.setState({todos: this.state.todos});
+  },
+
   render: function() {
     var items = this.state.todos.map(function(todo, i) {
       return (
-        ['li', {}, todo]
+        ['li', {}, [
+          ['span', {}, todo],
+          ['a', {href: '#', onClick: this.removeTodo.bind(this, i)}, 'x']
+        ]]
       );
-    });
+    }, this);
 
     return jsm(
       ['div', {}, [
