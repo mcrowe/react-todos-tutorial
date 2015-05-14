@@ -1,1 +1,26 @@
-/* Styles go here. */
+body {
+  padding: 40px;
+  color: #424242;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+li {
+  padding: 5px 0;
+  width: 300px;
+}
+
+input[type="text"] {
+  padding: 5px;
+  margin-top: 10px;
+  margin-right: 5px;
+  width: 300px;
+}
+
+a {
+  margin-left: 10px;
+  float: right;
+}
