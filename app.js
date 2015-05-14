@@ -36,6 +36,7 @@ var App = React.createClass({
         ['ul', {}, items],
         ['input', {type: 'text', ref: 'newTodo', placeholder: 'What needs to be done?'}],
         ['button', {onClick: this.addTodo}, 'Add Todo'],
+        ['p', {}, this.state.todos.length + ' todos remaining']
       ]]
     );
   }
