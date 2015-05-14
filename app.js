@@ -6,6 +6,16 @@ var App = React.createClass({
     };
   },
 
+  addTodo: function() {
+    var input = React.findDOMNode(this.refs.newTodo);
+    var title = input.value;
+    input.value = '';
+    input.focus();
+
+    this.state.todos.push(title);
+    this.setState({todos: this.state.todos});
+  },
+
   render: function() {
     var items = this.state.todos.map(function(todo, i) {
       return (
@@ -14,9 +24,11 @@ var App = React.createClass({
     });
 
     return jsm(
-      ['div', {},
-        ['ul', {}, items]
-      ]
+      ['div', {}, [
+        ['ul', {}, items],
+        ['input', {type: 'text', ref: 'newTodo', placeholder: 'What needs to be done?'}],
+        ['button', {onClick: this.addTodo}, 'Add Todo'],
+      ]]
     );
   }
 
